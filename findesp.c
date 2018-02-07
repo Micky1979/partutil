@@ -66,12 +66,14 @@ CFArrayRef findEFIDisks() {
     io_registry_entry_t serviceObject;
     while ((serviceObject = IOIteratorNext(entry_iterator))) {
       CFMutableDictionaryRef serviceDictionary = NULL;
-      if (IORegistryEntryCreateCFProperties(serviceObject,
+      kern_return_t kres = IORegistryEntryCreateCFProperties(serviceObject,
                                             &serviceDictionary,
                                             kCFAllocatorDefault,
-                                            0) != kIOReturnSuccess) {
-        continue;
-      }
+                                                             0);
+        if (kres != KERN_SUCCESS) {
+          IOObjectRelease(serviceObject);
+          break;
+        }
 
       if (serviceDictionary != NULL) {
         CFStringRef v = CFDictionaryGetValue(serviceDictionary,
@@ -100,6 +102,7 @@ CFArrayRef findEFIDisks() {
         }
         CFRelease(serviceDictionary);
       }
+      IOObjectRelease(serviceObject);
     }
   }
   return esps;

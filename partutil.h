@@ -3,7 +3,7 @@
 //  partutil
 //
 //  Created by Yves Blusseau on 28/12/2014.
-//  Copyright (c) 2014-2015 JrCs. All rights reserved.
+//  Copyright (c) 2014-2018 JrCs. All rights reserved.
 //
 
 #ifndef partutil_partutil_h
@@ -14,7 +14,7 @@
 #define STRINGIFY2(s) STRINGIFY(s)
 #define PROGNAME_S STRINGIFY2(PROGNAME)
 
-#define VERSION_S  STRINGIFY(0.15)
+#define VERSION_S  STRINGIFY(0.16)
 
 #include <assert.h>
 #include <stdio.h>

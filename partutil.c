@@ -3,7 +3,7 @@
  *  partutil
  *
  *  Created by JrCs on December 28th, 2014.
- *  Copyright (c) 2014-2015 JrCs. All rights reserved.
+ *  Copyright (c) 2014-2018 JrCs. All rights reserved.
  */
 
 
@@ -527,13 +527,18 @@ int main(int argc, char* const argv[])
           query = c;
           break;
         case query_findesp: {
-          char * esp = getESPFor(argv[optind]);
-          if (esp && strlen(esp)) {
-            printf("%s\n", esp);
+          if (argv[optind]) {
+            char * esp = getESPFor(argv[optind]);
+            if (esp && strlen(esp)) {
+              printf("%s\n", esp);
+            }
+            if (esp) {
+              free(esp);
+            }
+          } else {
+            usage (1);
           }
-          if (esp) {
-            free(esp);
-          }
+          
           exit(0);
           break;
         }
