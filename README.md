@@ -37,6 +37,7 @@ Copyright 2014-2018 JrCs.
 ## How to use in Clover:
 
 copy  partutil-master/**partutil**  and replace in ~/src/edk2/Clover/CloverPackage/utils/
+
 copy  partutil-master/**MountESP**   and replace in ~/src/edk2/Clover/CloverPackage/package/Scripts.templates/EFIFolder/
 
 
