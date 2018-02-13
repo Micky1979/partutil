@@ -14,7 +14,7 @@
 #define STRINGIFY2(s) STRINGIFY(s)
 #define PROGNAME_S STRINGIFY2(PROGNAME)
 
-#define VERSION_S  STRINGIFY(0.16)
+#define VERSION_S  STRINGIFY(0.17)
 
 #include <assert.h>
 #include <stdio.h>
@@ -44,8 +44,7 @@
 
 void print_version(void);
 void usage (int status);
-CFDictionaryRef getDescriptionsFrom(char const* diskOrMountPoint);
-CFArrayRef findEFIDisks();
-char* getESPFor(char const* diskOrMountPoint);
-void releaseESPArray(CFArrayRef esps);
+char const* toBSDName(char const* pathName);
+int getDASessionAndDisk(char const* pathName, DASessionRef* pSession, DADiskRef* pDisk);
+void getESPFor(char const* pathName);
 #endif

@@ -1,6 +1,6 @@
 
 ``` bash
-partutil 0.16
+partutil 0.17
 Copyright 2014-2018 JrCs.
 
             Usage: partutil [QUERY OPTION] [DEVICE|UUID]
@@ -34,3 +34,9 @@ Copyright 2014-2018 JrCs.
             partutil --find-esp disk0s4
             partutil --search-uuid 2C97F84A-F488-4917-A312-5D64BAE5BCFC
 ```
+## How to use in Clover:
+
+copy  partutil-master/**partutil**  and replace in ~/src/edk2/Clover/CloverPackage/utils/
+copy  partutil-master/**MountESP**   and replace in ~/src/edk2/Clover/CloverPackage/package/Scripts.templates/EFIFolder/
+
+

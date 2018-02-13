@@ -10,7 +10,7 @@
 #include "partutil.h"
 
 static char const diskStr[] = "disk";
-static __used char const copyright[] = "Copyright 2014-2015 JrCs.";
+static __used char const copyright[] = "Copyright 2014-2018 JrCs.";
 int verbosity = 0;
 
 typedef enum {
@@ -58,7 +58,6 @@ bool isUUID(const char* string) {
   return false;
 }
 
-static
 char const* toBSDName(char const* pathName)
 {
   assert(pathName);
@@ -150,7 +149,7 @@ bool getFSTypeFromPBR(char const* pathName, char *answer, size_t answer_maxsize)
   return isSuccess;
 }
 
-static
+
 int getDASessionAndDisk(char const* pathName, DASessionRef* pSession, DADiskRef* pDisk)
 {
   DASessionRef session;
@@ -528,17 +527,10 @@ int main(int argc, char* const argv[])
           break;
         case query_findesp: {
           if (argv[optind]) {
-            char * esp = getESPFor(argv[optind]);
-            if (esp && strlen(esp)) {
-              printf("%s\n", esp);
-            }
-            if (esp) {
-              free(esp);
-            }
+            getESPFor(argv[optind]);
           } else {
             usage (1);
           }
-          
           exit(0);
           break;
         }
